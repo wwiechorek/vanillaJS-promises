@@ -9,9 +9,9 @@ function myFunction(fireWhen){
   
   // Set which function should do the callback
   if (fireWhen === 'done')
-    myPromise.resolve('Fork me, I'm done!');
+    myPromise.resolve("Fork me, I'm done!");
   else
-    myPromise.reject('Nooooooooooo!');
+    myPromise.reject("Nooooooooooo!");
   
   // Return the functions for done() and fail()
   return myPromise;
