@@ -22,7 +22,7 @@ var Promise = function Promise(){
     setPromise = function(state, arg) {
         // Set information that it is resolved already
         promiseState = state;
-        promiseState = arg;
+        promiseArg = arg;
 
         // Unset the resolve and reject function to avoid recalls
         Public.resolve = null;
