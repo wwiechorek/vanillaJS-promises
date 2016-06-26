@@ -13,10 +13,12 @@ var Promise = function Promise(){
 
         // Public functions
         Public = {
+            callState : null,
             resolve : null,
             reject : null,
             done : null,
-            fail : null
+            fail : null,
+            when : null
         };
 
     setPromise = function(state, arg) {
@@ -50,6 +52,9 @@ var Promise = function Promise(){
     };
 
     // Functions to set how the callback should be executed
+    Public.callState = function(state, arg){
+        return setPromise(state, arg);
+    };
     Public.resolve = function(arg){
         return setPromise('DONE', arg);
     };
@@ -63,6 +68,9 @@ var Promise = function Promise(){
     };
     Public.fail = function(arg){
         return setCallback('FAIL', arg);
+    };
+    Public.when = function(state, callback){
+        return setCallback(state, callback);
     };
 
     return Public;

@@ -27,6 +27,32 @@ myFunction('ehhh...')
   .done(function(message){ alert(message); })
   .fail(function(message){ alert(message); });
 ```
+## Usage with "when" method
+```javascript
+function myFunction(fireWhen){
+  // Start the promises class
+  var myPromise = new Promise();
+
+  // Set which function should do the callback
+  if (fireWhen === 'done')
+    myPromise.callState('done', "Fork me, I'm done!");
+  else
+    myPromise.callState('fail', "Nooooooooooo!");
+
+  // Return the functions for done() and fail()
+  return myPromise;
+}
+
+// This example will work only with the done function
+myFunction('done')
+  .when('done', function(message){ alert(message); })
+  .when('fail', function(message){ alert(message); });
+
+// This example will work only with the fail function
+myFunction('fail')
+  .when('done', function(message){ alert(message); })
+  .when('fail', function(message){ alert(message); });
+```
 
 ## TODO
 - [x] Make it work
