@@ -2,13 +2,18 @@
 Simple class to make promises using pure JavaScript.
 
 ## Usage
-```
+```javascript
 function myFunction(fireWhen){
+  // Start the promises class
   var myPromise = new Promise();
   
-  if (fireWhen === 'done') myPromise.resolve('Fork me, I'm done!');
-  else myPromise.reject('Nooooooooooo!');
+  // Set which function should do the callback
+  if (fireWhen === 'done')
+    myPromise.resolve('Fork me, I'm done!');
+  else
+    myPromise.reject('Nooooooooooo!');
   
+  // Return the functions for done() and fail()
   return myPromise;
 }
 
