@@ -36,16 +36,16 @@ var Promise = function Promise(){
         // Return all functions
         return Public;
     };
-    setCallback = function(state, arg) {
+    setCallback = function(state, callback) {
         // Escape in case the argument is not a valid function or a different promise was already set
-        if (typeof arg !== 'function' ||
+        if (typeof callback !== 'function' ||
             typeof promiseState === 'string' && promiseState !== state) return Public;
 
         // Set callback info to be used when it's resolved
-        callbacks[state] = arg;
+        callbacks[state] = callback;
 
         // Execute the callback function it was already resolved
-        if(typeof promiseState === 'string') arg(promiseArg);
+        if(typeof promiseState === 'string') callback(promiseArg);
 
         // Return the function
         return Public;
